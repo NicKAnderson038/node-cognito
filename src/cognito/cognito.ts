@@ -44,8 +44,6 @@ export function SignUp(body:CognitoSignupPayload){
             ]
         },function(err:any,response){
             if(err){
-                // console.log('line 47',err);
-                
                 reject(err)
             }else{
                 resolve(response.User)
@@ -102,9 +100,7 @@ export function UserLogin(payload:{email:string,password:string}){
                reject(err)
                return
             }
-            
             resolve(response)
-            
         })
     })
 }
