@@ -21,8 +21,8 @@ export function SignUp(body:CognitoSignupPayload){
             UserPoolId: poolData.UserPoolId,
             Username: email,
             DesiredDeliveryMediums: ['EMAIL'],
-            //MessageAction: 'SUPPRESS', //stop sending the invitation
-            //MessageAction: 'RESET',  // resend the invitation message to a user that already exists 
+            // MessageAction: 'SUPPRESS', //stop sending the invitation
+            // MessageAction: 'RESET',  // resend the invitation message to a user that already exists 
             // TemporaryPassword: "temp#1234", // If you don't specify a value, Amazon Cognito generates one for you.
             UserAttributes: [
                 {
@@ -127,7 +127,7 @@ export async function newPasswordRequired(payload:{email:string, newPassword:str
     })
 }
 
-export  function validateAccessToken(token:string) {
+export function validateAccessToken(token:string) {
     return new Promise((resolve, reject) => {
         axios.get(`https://cognito-idp.${poolData.PoolRegion}.amazonaws.com/${poolData.UserPoolId}/.well-known/jwks.json`, {headers: {'Content-Type': 'application/json'}})
         .then((response)=>{
