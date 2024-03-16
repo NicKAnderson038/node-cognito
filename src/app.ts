@@ -6,7 +6,7 @@ const app = express()
 const port = process.env.PORT
 
 app.use(express.json())
-app.use(router)
+app.use('/api', router)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
